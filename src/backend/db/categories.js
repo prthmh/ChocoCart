@@ -8,20 +8,26 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "fiction",
+    categoryName: "Milk Chocolate",
     description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+      "This is the most popular type of chocolate and is made by adding milk powder or condensed milk to the chocolate mixture, giving it acreamy and sweet taste.",
   },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
+    categoryName: "Dark Chocolate",
     description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+      " Dark Chocolate type of chocolate has a higher percentage of cocoasolids and very little or no added milk content, resulting in a rich, slightly bitter flavor.",
   },
   {
     _id: uuid(),
-    categoryName: "horror",
+    categoryName: "White Chocolate",
     description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+      "While technically not a chocolate because it contains no cocoa solids, white chocolate is made with cocoa butter, sugar, and milk solids, giving it a sweet, creamy taste.",
   },
+  {
+    _id: uuid(),
+    categoryName: "Ruby Chocolate",
+    description:
+      "Ruby Chocolate is a relatively new type of chocolate that is made from ruby cocoa beans and has a naturally pink color and fruity slightly tart flavor.",
+  }
 ];
