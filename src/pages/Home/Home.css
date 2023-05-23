@@ -15,7 +15,7 @@
     flex-direction: column;
     margin-right: 0.5rem;
   }
-  button {
+  .home_page_btn {
     border: none;
     padding: 1rem;
     font-family: inherit;
@@ -31,7 +31,7 @@
     font-size: 1.1rem;
     cursor: pointer;
   }
-  button:hover {
+  .home_page_btn:hover {
     color: var(--text-color-hover2);
   }
   .category {

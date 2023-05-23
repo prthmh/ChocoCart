@@ -5,15 +5,19 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
+import { DataProvider, DataContext } from "./context/DataContext";
 
 // Call make Server
 makeServer();
 
-createRoot(document.getElementById('root')).render(
+export { DataContext };
+
+createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <DataProvider>
+        <App />
+      </DataProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
-

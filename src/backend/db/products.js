@@ -12,7 +12,8 @@ export const products = [
     brand: "Amul",
     price: "80",
     categoryName: "White Chocolate",
-    image: "https://m.media-amazon.com/images/I/61-pg5u+9pL._SL1500_.jpg"
+    rating: 4,
+    image: "https://m.media-amazon.com/images/I/61-pg5u+9pL._SL1500_.jpg",
   },
   {
     _id: uuid(),
@@ -20,7 +21,8 @@ export const products = [
     brand: "Nestle",
     price: "20",
     categoryName: "White Chocolate",
-    image: "https://m.media-amazon.com/images/I/61JjKHjetFL._SL1000_.jpg"
+    rating: 4.8,
+    image: "https://m.media-amazon.com/images/I/61JjKHjetFL._SL1000_.jpg",
   },
   {
     _id: uuid(),
@@ -28,7 +30,8 @@ export const products = [
     brand: "Hershey's",
     price: "139",
     categoryName: "White Chocolate",
-    image: "https://m.media-amazon.com/images/I/61UHYRZQrZL._SL1500_.jpg"
+    rating: 4.1,
+    image: "https://m.media-amazon.com/images/I/61UHYRZQrZL._SL1500_.jpg",
   },
   {
     _id: uuid(),
@@ -36,7 +39,8 @@ export const products = [
     brand: "Cadbury",
     price: "91",
     categoryName: "Dark Chocolate",
-    image: "https://m.media-amazon.com/images/I/61UHYRZQrZL._SL1500_.jpg"
+    rating: 3,
+    image: "https://m.media-amazon.com/images/I/61UHYRZQrZL._SL1500_.jpg",
   },
   {
     _id: uuid(),
@@ -44,7 +48,8 @@ export const products = [
     brand: "Amul",
     price: "112",
     categoryName: "Dark Chocolate",
-    image: "https://m.media-amazon.com/images/I/81IBW9geZJL._SL1500_.jpg"
+    rating: 3.5,
+    image: "https://m.media-amazon.com/images/I/81IBW9geZJL._SL1500_.jpg",
   },
   {
     _id: uuid(),
@@ -52,7 +57,9 @@ export const products = [
     brand: "Amul",
     price: "109",
     categoryName: "Dark Chocolate",
-    image: "https://maplesfood.com/wp-content/uploads/2021/01/amul-dark-chocolate.jpg"
+    rating: 2.9,
+    image:
+      "https://maplesfood.com/wp-content/uploads/2021/01/amul-dark-chocolate.jpg",
   },
   {
     _id: uuid(),
@@ -60,7 +67,8 @@ export const products = [
     brand: "Amul",
     price: "74",
     categoryName: "Milk Chocolate",
-    image: "https://m.media-amazon.com/images/I/81Rz8SxtiJL._SL1500_.jpg"
+    rating: 4,
+    image: "https://m.media-amazon.com/images/I/81Rz8SxtiJL._SL1500_.jpg",
   },
   {
     _id: uuid(),
@@ -68,7 +76,8 @@ export const products = [
     brand: "Amul",
     price: "74",
     categoryName: "Milk Chocolate",
-    image: "https://m.media-amazon.com/images/I/71EBaOPUs2L._SL1500_.jpg"
+    rating: 3.9,
+    image: "https://m.media-amazon.com/images/I/71EBaOPUs2L._SL1500_.jpg",
   },
   {
     _id: uuid(),
@@ -76,7 +85,8 @@ export const products = [
     brand: "Cadbury",
     price: "96",
     categoryName: "Milk Chocolate",
-    image: "https://m.media-amazon.com/images/I/51odvWzqOQL._SL1000_.jpg"
+    rating: 3.8,
+    image: "https://m.media-amazon.com/images/I/51odvWzqOQL._SL1000_.jpg",
   },
   {
     _id: uuid(),
@@ -84,6 +94,7 @@ export const products = [
     brand: "Artisanté",
     price: "300",
     categoryName: "Ruby Chocolate",
-    image: "https://m.media-amazon.com/images/I/51Gj8QBId3L._SL1500_.jpg"
+    rating: 3,
+    image: "https://m.media-amazon.com/images/I/51Gj8QBId3L._SL1500_.jpg",
   },
 ];
