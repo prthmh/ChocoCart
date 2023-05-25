@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import { DataContext } from "./context/DataContext";
 import Loading from "./components/Loading";
 import Mockman from "mockman-js";
+import ErrorPage from "./pages/Errorpage/ErrorPage";
 
 const App = () => {
   const { isLoading } = useContext(DataContext);
@@ -20,6 +21,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/productlist" element={<ProductList />} />
             <Route path='/mockman' element={<Mockman/>} />
+            <Route path="*" element={<ErrorPage/>} />
           </Routes>
         </>
       )}

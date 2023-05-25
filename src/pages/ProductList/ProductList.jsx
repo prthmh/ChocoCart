@@ -1,6 +1,8 @@
 import React from "react";
 import { useData } from "../../context/DataContext";
 import Filter from "../../components/Filter";
+import "./ProductList.css"
+import ProductItems from "../../components/ProductItems/ProductItems";
 
 const ProductList = () => {
   const { state } = useData();
@@ -30,14 +32,11 @@ const ProductList = () => {
       <aside>
         <Filter />
       </aside>
-      <ul>
+      <div className="products" >
         {searchData?.map((item) => (
-          <li key={item._id}>
-            {item.name}---<strong>{item.categoryName}</strong>-- {item.price} --{" "}
-            {item.rating}
-          </li>
+          <ProductItems key={item.id} {...item} />
         ))}
-      </ul>
+        </div>
     </div>
   );
 };

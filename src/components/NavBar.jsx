@@ -17,12 +17,17 @@ const NavBar = () => {
         <NavLink to="/" className="navName" id="chococart">
           ChocoCart
         </NavLink>
-        <input type="text" placeholder="Search here" onChange={handlesearch} />
+        <input
+          type="text"
+          placeholder="Search here"
+          className="search_bar"
+          onChange={handlesearch}
+        />
         <div className="other_routes">
           <NavLink className="navName">Cart</NavLink>
-          <span style={{ padding: "1em" }}></span>
+          {/* <span style={{ padding: "1em" }}></span> */}
           <NavLink className="navName">Wishlist</NavLink>
-          <span style={{ padding: "1em" }}></span>
+          {/* <span style={{ padding: "1em" }}></span> */}
           <NavLink className="navName">Sign In</NavLink>
         </div>
       </nav>
