@@ -27,6 +27,8 @@ const FilterReducer = (state, action) => {
         priceFilter: null,
         ratingFilter: 0,
       };
+    case "SET_CATEGORY_SHOP":
+      return { ...state, categoryFilter: action.payload };
     default:
       return state;
   }
