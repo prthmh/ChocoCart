@@ -47,7 +47,7 @@ const Home = () => {
         <h1 style={{ textAlign: "center" }}>Categories</h1>
         <div className="category">
           {categories.map((item) => (
-            <div id="item._id" className="item">
+            <div key={item._id} className="item">
               <h3>{item.categoryName}</h3>
               <p>{item.description}</p>
               <NavLink to="/productlist">

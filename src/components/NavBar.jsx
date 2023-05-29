@@ -24,11 +24,17 @@ const NavBar = () => {
           onChange={handlesearch}
         />
         <div className="other_routes">
-          <NavLink className="navName">Cart</NavLink>
+          <NavLink to="/cart" className="navName">
+            Cart
+          </NavLink>
           {/* <span style={{ padding: "1em" }}></span> */}
-          <NavLink className="navName">Wishlist</NavLink>
+          <NavLink to="wishlist" className="navName">
+            Wishlist
+          </NavLink>
           {/* <span style={{ padding: "1em" }}></span> */}
-          <NavLink className="navName">Sign In</NavLink>
+          <NavLink to="/profile" className="navName">
+            Sign In
+          </NavLink>
         </div>
       </nav>
     </div>

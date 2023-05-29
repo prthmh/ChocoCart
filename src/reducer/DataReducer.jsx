@@ -7,7 +7,7 @@ export const initialState = {
   priceFilter: null,
   ratingFilter: 0,
 };
-const FilterReducer = (state, action) => {
+const DataReducer = (state, action) => {
   switch (action.type) {
     case "INITIALIZE_PRODUCTS":
       return { ...state, chocolates: action.payload };
@@ -34,4 +34,4 @@ const FilterReducer = (state, action) => {
   }
 };
 
-export default FilterReducer;
+export default DataReducer;

@@ -5,13 +5,14 @@
   display: flex;
   border-radius: 1.8em;
   margin-top: 0;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 .header img {
   border-radius: 1.8em;
 }
 .heading {
   display: flex;
+  justify-content: space-around;
   flex-direction: column;
   margin-right: 0.5rem;
 }
