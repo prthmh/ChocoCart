@@ -1,8 +1,10 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useData } from "../context/DataContext";
+import { useAuth } from "../context/AuthContext";
 
 const NavBar = () => {
+  const {token} = useAuth();
   const { dispatch } = useData();
   const navigate = useNavigate();
   const handlesearch = (event) => {
@@ -33,7 +35,7 @@ const NavBar = () => {
           </NavLink>
           {/* <span style={{ padding: "1em" }}></span> */}
           <NavLink to="/profile" className="navName">
-            Sign In
+            {token ? "Profile" : "Sign in"}
           </NavLink>
         </div>
       </nav>

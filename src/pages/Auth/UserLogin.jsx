@@ -13,14 +13,14 @@ const UserLogin = () => {
       userLoginFunc(loginData.email, loginData.password);
     }
     loginHandler();
-  }, [loginData.email, loginData.password]);
+  }, [loginData.email, loginData.password, userLoginFunc]);
 
   if (token) {
     setTimeout(() => {
       navigate(location?.state?.form?.pathname || "/productlist", {
         replace: true,
       });
-    },200);
+    }, 200);
   }
   //you have to add loader in if
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { useData } from "../../context/DataContext";
 import Filter from "../../components/Filter";
-import "./ProductList.css"
+import "./ProductList.css";
 import ProductItems from "../../components/ProductItems/ProductItems";
 
 const ProductList = () => {
@@ -32,11 +32,11 @@ const ProductList = () => {
       <aside>
         <Filter />
       </aside>
-      <div className="products" >
+      <div className="products">
         {searchData?.map((item) => (
-          <ProductItems key={item.id} {...item} />
+          <ProductItems key={item.id} item={item} />
         ))}
-        </div>
+      </div>
     </div>
   );
 };

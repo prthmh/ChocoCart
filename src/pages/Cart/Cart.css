@@ -1,0 +1,20 @@
+.cart_items {
+  background-color: var(--bg-for-components);
+  border-radius: 1.8rem;
+  padding: 1.5rem;
+}
+.price_details {
+  background-color: var(--bg-for-components);
+  border-radius: 1.8rem;
+  padding: 1.5rem;
+}
+@media (min-width: 1024px) {
+  .cart_page {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    margin: 0 10rem;
+  }
+  .price_details {
+    margin-left: 5rem;
+  }
+}

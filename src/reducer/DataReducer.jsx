@@ -6,6 +6,8 @@ export const initialState = {
   categoryFilter: [],
   priceFilter: null,
   ratingFilter: 0,
+  cart: [],
+  wishlist: [],
 };
 const DataReducer = (state, action) => {
   switch (action.type) {
@@ -29,6 +31,24 @@ const DataReducer = (state, action) => {
       };
     case "SET_CATEGORY_SHOP":
       return { ...state, categoryFilter: action.payload };
+    case "ADD_TO_CART":
+      return { ...state, cart: [...action.payload] };
+    case "ADD_TO_WISHLIST":
+      return { ...state, wishlist: [...action.payload] };
+    case "REMOVE_ITEM_FROM_WISHLIST":
+      return { ...state, wishlist: [...action.payload] };
+    case "LOG_OUT":
+      return {
+        ...state,
+        cart: [],
+        wishlist: [],
+      };
+    case "INC_CART_QTY":
+      return { ...state, cart: [...action.payload] };
+    case "DEC_CART_QTY":
+      return { ...state, cart: [...action.payload] };
+    case "REMOVE_ITEM_IN_CART":
+      return { ...state, cart: [...action.payload] };
     default:
       return state;
   }
