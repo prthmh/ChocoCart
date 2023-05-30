@@ -8,9 +8,10 @@ import {
   removeItemFromCart,
 } from "../../../services/cartServices";
 import { addToWishlistFunc } from "../../../services/wishlistServices";
+import { calcDiscount } from "../../../utils/cartAndWishlistUtils";
 
 const CartItems = ({ item }) => {
-  const { name, brand, price, rating, image, qty } = item;
+  const { name, brand, price, originalPrice, image, qty } = item;
   const { dispatch } = useData();
   const { token } = useAuth();
   // console.log(_id);
@@ -28,11 +29,10 @@ const CartItems = ({ item }) => {
       <div className="item_details">
         <h4 style={{ margin: "0" }}>{name}</h4>
         {brand}
-        <br />
-        {price}
-        <br />
-        {rating}
-        <br />
+        <div className="price" >
+          <b>₹{price}</b> <span className="ogPrice">₹{originalPrice}</span>
+          <span className="disc">{calcDiscount(price, originalPrice)}% off</span>
+        </div>
         <button
           id="minus"
           onClick={() => decreaseCartItemQty(item._id, token, dispatch)}

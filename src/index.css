@@ -7,12 +7,14 @@
   --main-bg-color: #f3e2d2;
   --navbar-color: #371211;
   --text-color-1: #d8a071;
+  --text-color-light: #914B2B;
   --text-color-hover: #bc560a;
   --text-color-hover2: #e5c3a2;
   --text-color-active: #d8a071;
   --bg2-color: #d8a071;
   --bg-for-components: #e5c3a2;
   --product-bg: #d39169;
+  --discount-color: #006700;
 }
 body {
   background-color: var(--main-bg-color);
@@ -62,6 +64,26 @@ nav {
 }
 ::placeholder {
   color: var(--text-color-1);
+}
+.ogPrice {
+  text-decoration: line-through;
+  color: var(--text-color-light);
+}
+.disc{
+  background-color: var(--discount-color);
+  border-radius: 4px;
+  color: white;
+  padding: 2px;
+}
+.price{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.nav-elements{
+  position: sticky;
+  top: 0;
+  z-index: 10;;
 }
 @media (min-width: 1024px) {
   #chococart {

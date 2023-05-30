@@ -7,6 +7,28 @@
   background-color: var(--bg-for-components);
   border-radius: 1.8rem;
   padding: 1.5rem;
+  margin-right: 4rem;
+  height: fit-content;
+}
+.price_line {
+  height: 0.9px;
+  background-color: #371211;
+  border: none;
+  margin: 10px 0;
+}
+/* .price_calc{
+  padding-top: 0.5rem;
+}
+.price-calc ul {
+  margin-top: 0.5rem;
+} */
+.price_details ul {
+  display: flex;
+  justify-content: space-between;
+  gap: 5rem;
+  align-items: center;
+  padding: 0;
+  margin: 0;
 }
 @media (min-width: 1024px) {
   .cart_page {
@@ -15,6 +37,13 @@
     margin: 0 10rem;
   }
   .price_details {
-    margin-left: 5rem;
+    margin-left: 4rem;
+    margin-top: 1rem;
+    position: sticky;
+    top: 16%;
+  }
+  .price_details ul{
+    font-size: 17px;
+    font-weight: bold;
   }
 }

@@ -25,7 +25,7 @@ export const DataProvider = ({ children }) => {
   // console.log("context", state.chocolates);
   return (
     <DataContext.Provider
-      value={{ products: state.chocolates, state, dispatch }}
+      value={{  state, dispatch }}
     >
       {children}
     </DataContext.Provider>

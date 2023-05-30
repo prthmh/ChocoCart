@@ -3,18 +3,25 @@ import "./WishlistItem.css";
 import { useAuth } from "../../../context/AuthContext";
 import { useData } from "../../../context/DataContext";
 import { removeItemFromWishlist } from "../../../services/wishlistServices";
-import { addToCartFunc } from "../../../services/cartServices";
+import {
+  addToCartFunc,
+  increaseCartItemQty,
+} from "../../../services/cartServices";
+import { isAlreadyPresentInCart, calcDiscount } from "../../../utils/cartAndWishlistUtils";
 
 const WishlistItem = ({ item }) => {
-  const { name, brand, price, rating, image } = item;
+  const { name, brand, price, originalPrice, rating, image } = item;
   const { token } = useAuth();
-  const { dispatch } = useData();
-  // console.log("w", token);
-  // console.log("w", dispatch);
-  // console.log("w", item._id);
+  const { state, dispatch } = useData();
+
   const moveToCartFromWishlist = () => {
-    removeItemFromWishlist(item._id, token, dispatch);
-    addToCartFunc(token, dispatch, item);
+    if (isAlreadyPresentInCart(item._id, state.cart)) {
+      increaseCartItemQty(item._id, token, dispatch);
+      removeItemFromWishlist(item._id, token, dispatch);
+    } else {
+      removeItemFromWishlist(item._id, token, dispatch);
+      addToCartFunc(token, dispatch, item);
+    }
   };
   return (
     <div className="wishlist_item">
@@ -24,9 +31,10 @@ const WishlistItem = ({ item }) => {
       <div className="wishlist_item_detail">
         <h4 style={{ margin: "0" }}>{name}</h4>
         {brand}
-        <br />
-        {price}
-        <br />
+        <div className="price">
+          <b>₹{price}</b> <span className="ogPrice">₹{originalPrice}</span>
+          <span className="disc">{calcDiscount(price, originalPrice)}%</span>
+        </div>
         {rating}
         <div>
           <button onClick={moveToCartFromWishlist}>Move to Cart</button>

@@ -7,6 +7,16 @@ const Cart = () => {
   const { state } = useData();
   const { cart } = state;
   // console.log(cart);
+  const { price, discount } = cart.reduce(
+    (acc, curr) => {
+      acc.price += curr.originalPrice * curr.qty;
+      acc.discount += curr.qty * (curr.originalPrice - curr.price);
+      return acc;
+    },
+    { price: 0, discount: 0 }
+  );
+  // console.log(price, discount);
+  const totPrice = parseFloat(price - discount).toFixed(2)
   return (
     <div className="cart_page">
       {cart?.length === 0 ? (
@@ -14,12 +24,37 @@ const Cart = () => {
       ) : (
         <>
           <div className="cart_items">
-            <h2 style={{margin: "0"}} >Cart ({cart?.length}) </h2>
+            <h2 style={{ margin: "0" }}>Cart ({cart?.length}) </h2>
             {cart?.map((item) => (
               <CartItems key={item._id} item={item} />
             ))}
           </div>
-          <div className="price_details">sgfs</div>
+          <div className="price_details">
+            <h2 style={{ margin: "0" }}>Price Details </h2>
+            <hr className="price_line" />
+            <div className="price_calc">
+              <li style={{ listStyle: "none" }}>
+                <ul>
+                  <p>Price ({cart.length} Items)</p>
+                  <p>₹{price}</p>
+                </ul>
+                <ul>
+                  <p>Discount</p>
+                  <p>₹{discount}</p>
+                </ul>
+                <ul>
+                  <p>Delivery Charges</p>
+                  <p style={{color: "var(--discount-color)"}} >FREE</p>
+                </ul>
+                <hr className="price_line" />
+                <ul>
+                  <p>Total Amount</p>
+                  <p>₹{totPrice}</p>
+                </ul>
+              </li>
+              <p style={{color: "var(--discount-color)"}} >You have saved ₹{discount} on this order.</p>
+            </div>
+          </div>
         </>
       )}
     </div>

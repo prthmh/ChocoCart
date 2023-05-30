@@ -24,6 +24,7 @@
     margin: 0.5rem;
     margin-left: 0;
     cursor: pointer;
+    background: none;
   }
   #add{
     border: 1px solid #814326;
@@ -31,5 +32,6 @@
     padding: 4px 9px;
     margin: 0.5rem;
     cursor: pointer;
+    background: none;
   }
 }
