@@ -3,7 +3,6 @@
   font-size: 13px; */
   background-color: var(--bg-for-components);
   border-radius: 1.8rem;
-  /* position: fixed; */
 }
 .products {
   margin-left: 1.5rem;
@@ -27,6 +26,7 @@ input {
   }
   .filter {
     padding: 10px;
+    position: fixed;
   }
   .products {
     padding: 10px;

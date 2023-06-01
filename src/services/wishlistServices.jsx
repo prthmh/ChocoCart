@@ -1,6 +1,12 @@
 import axios from "axios";
 
-export const addToWishlistFunc = async (token, dispatch, item) => {
+export const addToWishlistFunc = async (
+  token,
+  dispatch,
+  item,
+  setWishlistBtnDisabled
+) => {
+  setWishlistBtnDisabled && setWishlistBtnDisabled((prevState) => !prevState);
   try {
     const {
       data: { wishlist },
@@ -14,6 +20,7 @@ export const addToWishlistFunc = async (token, dispatch, item) => {
   } catch (error) {
     console.error("Error occured while adding item to wishlist", error);
   }
+  setWishlistBtnDisabled && setWishlistBtnDisabled((prevState) => !prevState);
 };
 
 export const removeItemFromWishlist = async (id, token, dispatch) => {

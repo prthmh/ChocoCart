@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useData } from "../../context/DataContext";
+import "./Profile.css"
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -19,10 +20,22 @@ const Profile = () => {
   };
   console.log(token);
   return (
-    <div>
-      Profile
-      <div>{user.firstName}</div>
-      <button onClick={handleLogOut}>Log out</button>
+    <div className="profile_container" >
+      <div className="profile_content" >
+      <h2>Profile</h2>
+      <hr className="price_line" />
+      <div className="profile_detail">
+        <div className="profile_titles" >
+          <p>Full Name:</p>
+          <p>Email:</p>
+        </div>
+        <div>
+          <p>{user?.firstName} {user?.lastName}</p>
+          <p>{user?.email}</p>
+        </div>
+      </div>
+      <button className="log_out_btn"  onClick={handleLogOut}>Log out</button>
+      </div>
     </div>
   );
 };

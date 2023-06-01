@@ -12,4 +12,9 @@
   .wishlist_item_img > img {
     border-radius: 1.8rem;
   }
+  .wishlist_item_detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
 }

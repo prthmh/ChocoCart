@@ -1,0 +1,22 @@
+.product_container {
+  display: grid;
+  place-items: center;
+  height: 70vh;
+}
+.indivudual_product {
+  background-color: var(--product-bg);
+  /* height: 6ovh; */
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  border-radius: 1.8rem;
+  gap: 1rem;
+}
+.indivudual_product > img {
+  width: 15vw;
+  border-radius: 1.8rem;
+  object-fit: cover;
+}
+.product_info {
+  flex-wrap: nowrap;
+}

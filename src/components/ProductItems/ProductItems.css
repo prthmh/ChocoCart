@@ -1,6 +1,6 @@
 .list_item img {
   border-radius: 1.8rem;
-  align-self: center;
+  
 }
 .list_item > p {
   margin: 0;
@@ -20,6 +20,13 @@
   font-size: 13px;
   width: fit-content;
 }
+.cart_btn:hover{
+  color: #1B0E08;
+  opacity: 0.9;
+}
+.cart_btn[disabled]{
+  opacity: 0.5;
+}
 @media (min-width: 1024px) {
   .list_item {
     margin: 1rem;
@@ -32,7 +39,7 @@
     margin: 0.2rem 0;
     font-family: inherit;
     color: white;
-    background-image: linear-gradient(
+    background: linear-gradient(
       135deg,
       rgb(199, 108, 66) 0%,
       rgb(145, 56, 44) 100%
@@ -40,7 +47,7 @@
     /* align-self: center; */
     width: 100%;
     border-radius: 1rem;
-    /* font-size: 1.1rem; */
+    font-size: 0.8rem;
     cursor: pointer;
   }
 }

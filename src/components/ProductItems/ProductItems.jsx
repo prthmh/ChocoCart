@@ -8,9 +8,12 @@ import {
 import { useAuth } from "../../context/AuthContext";
 import { addToCartFunc } from "../../services/cartServices";
 import { addToWishlistFunc } from "../../services/wishlistServices";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const ProductItems = ({ item }) => {
+  const [cartBtnDisabled, setCartBtnDisabled] = useState(false);
+  const [wishlistBtnDisabled, setWishlistBtnDisabled] = useState(false);
   const { _id, name, brand, price, originalPrice, rating, image } = item;
   const { state, dispatch } = useData();
   const { token } = useAuth();
@@ -24,7 +27,7 @@ const ProductItems = ({ item }) => {
     token
       ? isInCart
         ? navigate("/cart")
-        : addToCartFunc(token, dispatch, item)
+        : addToCartFunc(token, dispatch, item, setCartBtnDisabled)
       : navigate("/login");
   };
 
@@ -32,12 +35,17 @@ const ProductItems = ({ item }) => {
     token
       ? isInWishlist
         ? navigate("/wishlist")
-        : addToWishlistFunc(token, dispatch, item)
+        : addToWishlistFunc(token, dispatch, item, setWishlistBtnDisabled)
       : navigate("/login");
   };
   return (
     <div className="list_item">
-      <img src={image} alt="img" width="150px" height="150px" />
+      <Link
+        to={`/product/${_id}`}
+        style={{ display: "grid", placeItems: "center" }}
+      >
+        <img src={image} alt="img" width="150px" height="150px" />
+      </Link>
       <hr
         style={{
           height: "0.9px",
@@ -54,10 +62,19 @@ const ProductItems = ({ item }) => {
         <b>₹{price}</b> <span className="ogPrice">₹{originalPrice}</span>
         <span className="disc">{calcDiscount(price, originalPrice)}% off</span>
       </div>
-      <button className="cart_btn" onClick={addtoCartHandler} >
+
+      <button
+        className="cart_btn"
+        onClick={addtoCartHandler}
+        disabled={cartBtnDisabled}
+      >
         {isInCart ? "Go to Cart" : "Add to Cart"}
       </button>
-      <button className="cart_btn" onClick={addToWishlistHandler} >
+      <button
+        className="cart_btn"
+        onClick={addToWishlistHandler}
+        disabled={wishlistBtnDisabled}
+      >
         {isInWishlist ? "Go to Wishlist" : "Add to Wishlist"}
       </button>
     </div>

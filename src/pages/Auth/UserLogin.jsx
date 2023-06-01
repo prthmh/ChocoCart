@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import "./UserLogin.css";
 
 const UserLogin = () => {
   const [loginData, setLoginData] = useState({ email: "", password: "" });
@@ -32,13 +33,18 @@ const UserLogin = () => {
     }));
   };
   return (
-    <div>
-      <h2>Sign in</h2>
-      <form onSubmit={(event) => event.preventDefault()}>
-        <label>
-          Email Address
+    <div className="login_container">
+      <div className="login_content">
+        <h2>Sign in</h2>
+        <hr className="price_line" />
+        <form
+          className="login_form"
+          onSubmit={(event) => event.preventDefault()}
+        >
+          <label>Email Address</label>
           <input
             type="email"
+            className="email_input"
             placeholder="xyz@gmail.com"
             value={loginData.email}
             onChange={(event) =>
@@ -49,30 +55,26 @@ const UserLogin = () => {
             }
             required
           />
-        </label>
 
-        <div>
-          <label>
-            Password
-            <input
-              type="password"
-              value={loginData.password}
-              onChange={(event) =>
-                setLoginData((prevState) => ({
-                  ...prevState,
-                  password: event.target.value,
-                }))
-              }
-            />
-          </label>
-        </div>
+          <label>Password</label>
+          <input
+            type="password"
+            value={loginData.password}
+            onChange={(event) =>
+              setLoginData((prevState) => ({
+                ...prevState,
+                password: event.target.value,
+              }))
+            }
+          />
 
-        <div onClick={loginWithTestCreds} style={{ cursor: "pointer" }}>
-          Login with Test Credentials
-        </div>
+          <div className="login_test_creds"  onClick={loginWithTestCreds} style={{ cursor: "pointer" }}>
+            Login with Test Credentials
+          </div>
 
-        <NavLink to="/signup"> Create New Account </NavLink>
-      </form>
+          <NavLink to="/signup" id="new_acc" > Create New Account </NavLink>
+        </form>
+      </div>
     </div>
   );
 };

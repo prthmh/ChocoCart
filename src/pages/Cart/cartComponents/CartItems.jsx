@@ -33,6 +33,7 @@ const CartItems = ({ item }) => {
           <b>₹{price}</b> <span className="ogPrice">₹{originalPrice}</span>
           <span className="disc">{calcDiscount(price, originalPrice)}% off</span>
         </div>
+        <div>
         <button
           id="minus"
           onClick={() => decreaseCartItemQty(item._id, token, dispatch)}
@@ -47,11 +48,12 @@ const CartItems = ({ item }) => {
         >
           +
         </button>
+        </div>
         <div>
-          <button onClick={() => removeItemFromCart(item._id, token, dispatch)}>
+          <button className="remove_btn"  onClick={() => removeItemFromCart(item._id, token, dispatch)}>
             Remove
           </button>
-          <button onClick={moveToWishlistFromCart}>Move to Wishlist</button>
+          <button className="move_to_btn"  onClick={moveToWishlistFromCart}>Move to Wishlist</button>
         </div>
       </div>
     </div>

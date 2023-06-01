@@ -1,0 +1,44 @@
+.login_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login_content {
+  background-color: var(--bg2-color);
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+}
+.login_content > h2 {
+  margin: 0;
+}
+.login_form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.login_form > input {
+  height: 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.3rem;
+}
+.email_input::placeholder {
+  color: #e5c3a2;
+}
+.login_test_creds {
+  background-color: #622825;
+  padding: 8px;
+  color: #f3e2d2;
+  border-radius: 0.5rem;
+}
+.login_test_creds:hover {
+  opacity: 0.9;
+}
+#new_acc {
+  text-decoration: none;
+  color: #622825;
+  text-decoration: underline;
+}
+#new_acc:hover {
+  opacity: 0.9;
+}

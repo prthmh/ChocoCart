@@ -83,7 +83,7 @@ nav {
 .nav-elements{
   position: sticky;
   top: 0;
-  z-index: 10;;
+  z-index: 10;
 }
 @media (min-width: 1024px) {
   #chococart {

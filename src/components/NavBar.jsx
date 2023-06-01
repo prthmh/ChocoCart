@@ -4,7 +4,7 @@ import { useData } from "../context/DataContext";
 import { useAuth } from "../context/AuthContext";
 
 const NavBar = () => {
-  const {token} = useAuth();
+  const { token } = useAuth();
   const { dispatch } = useData();
   const navigate = useNavigate();
   const handlesearch = (event) => {
@@ -26,14 +26,15 @@ const NavBar = () => {
           onChange={handlesearch}
         />
         <div className="other_routes">
+          <NavLink to="/productlist" className="navName">
+            Chocolates
+          </NavLink>
           <NavLink to="/cart" className="navName">
             Cart
           </NavLink>
-          {/* <span style={{ padding: "1em" }}></span> */}
           <NavLink to="wishlist" className="navName">
             Wishlist
           </NavLink>
-          {/* <span style={{ padding: "1em" }}></span> */}
           <NavLink to="/profile" className="navName">
             {token ? "Profile" : "Sign in"}
           </NavLink>

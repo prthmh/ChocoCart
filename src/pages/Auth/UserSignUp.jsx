@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { NavLink, useNavigate } from "react-router-dom";
+import "./UserSignUp.css";
 
 const UserSignUp = () => {
   const [signUpData, setSignUpData] = useState({
@@ -10,7 +11,7 @@ const UserSignUp = () => {
     lastName: "",
   });
   const { token, userSignUpFunc } = useAuth();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const fillFormData = (event, field) => {
     const value = event.target.value;
@@ -40,11 +41,15 @@ const UserSignUp = () => {
   //you have to add the loader in if
 
   return (
-    <div>
-      <h2>Sign Up</h2>
-      <div>
-        <label>
-          First Name
+    <div className="signup_container">
+      <div className="signup_content">
+        <h2>Sign Up</h2>
+        <hr className="price_line" />
+        <form
+          className="signup_form"
+          onSubmit={(event) => event.preventDefault()}
+        >
+          <label>First Name</label>
           <input
             type="text"
             value={signUpData.firstName}
@@ -52,12 +57,8 @@ const UserSignUp = () => {
             onChange={(event) => fillFormData(event, "firstName")}
             required
           />
-        </label>
-      </div>
 
-      <div>
-        <label>
-          Last Name
+          <label>Last Name</label>
           <input
             type="text"
             value={signUpData.lastName}
@@ -65,12 +66,8 @@ const UserSignUp = () => {
             onChange={(event) => fillFormData(event, "lastName")}
             required
           />
-        </label>
-      </div>
 
-      <div>
-        <label>
-          Email Address
+          <label>Email Address</label>
           <input
             type="email"
             value={signUpData.email}
@@ -78,12 +75,8 @@ const UserSignUp = () => {
             onChange={(event) => fillFormData(event, "email")}
             required
           />
-        </label>
-      </div>
 
-      <div>
-        <label>
-          Password
+          <label>Password</label>
           <input
             type="password"
             value={signUpData.password}
@@ -91,11 +84,15 @@ const UserSignUp = () => {
             onChange={(event) => fillFormData(event, "password")}
             required
           />
-        </label>
-      </div>
 
-      <div onClick={signUpHandler}>Create New Account</div>
-      <NavLink to="/login">Already Have an account</NavLink>
+          <div className="creat_acc" onClick={signUpHandler}>
+            Create New Account
+          </div>
+          <NavLink id="old_acc" to="/login">
+            Already Have an account
+          </NavLink>
+        </form>
+      </div>
     </div>
   );
 };

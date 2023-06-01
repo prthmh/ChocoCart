@@ -13,6 +13,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Profile from "./pages/Profile/Profile";
 import Cart from "./pages/Cart/Cart";
 import Wishlist from "./pages/Wishlist/Wishlist";
+import IndividualProductPage from "./pages/IndividualProductPage/IndividualProductPage";
 
 const App = () => {
   const { isLoading } = useContext(DataContext);
@@ -26,6 +27,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/productlist" element={<ProductList />} />
+            <Route path="/product/:productId" element={<IndividualProductPage/>} />
             <Route path="/mockman" element={<Mockman />} />
             <Route path="*" element={<ErrorPage />} />
             <Route path="/login" element={<UserLogin />} />

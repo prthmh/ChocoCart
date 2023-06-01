@@ -33,12 +33,11 @@ const WishlistItem = ({ item }) => {
         {brand}
         <div className="price">
           <b>₹{price}</b> <span className="ogPrice">₹{originalPrice}</span>
-          <span className="disc">{calcDiscount(price, originalPrice)}%</span>
+          <span className="disc">{calcDiscount(price, originalPrice)}% off</span>
         </div>
-        {rating}
         <div>
-          <button onClick={moveToCartFromWishlist}>Move to Cart</button>
-          <button
+          <button className="move_to_btn" onClick={moveToCartFromWishlist}>Move to Cart</button>
+          <button className="remove_btn"
             onClick={() => removeItemFromWishlist(item._id, token, dispatch)}
           >
             Remove from wishlist
