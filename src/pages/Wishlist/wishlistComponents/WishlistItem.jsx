@@ -10,7 +10,7 @@ import {
 import { isAlreadyPresentInCart, calcDiscount } from "../../../utils/cartAndWishlistUtils";
 
 const WishlistItem = ({ item }) => {
-  const { name, brand, price, originalPrice, rating, image } = item;
+  const { name, brand, price, originalPrice, image } = item;
   const { token } = useAuth();
   const { state, dispatch } = useData();
 

@@ -10,7 +10,7 @@ const Profile = () => {
   const navigate = useNavigate();
   const { dispatch } = useData();
   const { token, setToken, user, setUser } = useAuth();
-  const { addressState, addressDispatch } = useAddress();
+  // const { addressState, addressDispatch } = useAddress();
   const handleLogOut = () => {
     dispatch({ type: "LOG_OUT" });
     localStorage.removeItem("login");
