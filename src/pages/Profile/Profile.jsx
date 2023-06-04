@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useData } from "../../context/DataContext";
 import "./Profile.css";
-import { useAddress } from "../../context/AddressContext";
+// import { useAddress } from "../../context/AddressContext";
 import SavedAddress from "./profile_components/SavedAddress";
 
 const Profile = () => {
