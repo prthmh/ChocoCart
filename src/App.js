@@ -14,6 +14,7 @@ import Profile from "./pages/Profile/Profile";
 import Cart from "./pages/Cart/Cart";
 import Wishlist from "./pages/Wishlist/Wishlist";
 import IndividualProductPage from "./pages/IndividualProductPage/IndividualProductPage";
+import Checkout from "./pages/Checkout/Checkout";
 
 const App = () => {
   const { isLoading } = useContext(DataContext);
@@ -53,6 +54,14 @@ const App = () => {
               element={
                 <PrivateRoute>
                   <Wishlist />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/checkout"
+              element={
+                <PrivateRoute>
+                  <Checkout />
                 </PrivateRoute>
               }
             />

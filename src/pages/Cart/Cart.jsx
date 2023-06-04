@@ -2,8 +2,10 @@ import React from "react";
 import { useData } from "../../context/DataContext";
 import "./Cart.css";
 import CartItems from "./cartComponents/CartItems";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Cart = () => {
+  const navigate = useNavigate();
   const { state } = useData();
   const { cart } = state;
   // console.log(cart);
@@ -16,11 +18,25 @@ const Cart = () => {
     { price: 0, discount: 0 }
   );
   // console.log(price, discount);
-  const totPrice = parseFloat(price - discount).toFixed(2)
+  const totPrice = parseFloat(price - discount).toFixed(2);
+
+  const handleCheckout = () => {
+    navigate("/checkout");
+  };
+
   return (
     <div className="cart_page">
       {cart?.length === 0 ? (
-        <h2>Sorry the cart is empty</h2>
+        <div className="no_cart_item" >
+          <h2>Sorry the cart is empty</h2>
+          <NavLink
+            to="/productlist"
+            className="cart_page_btn"
+            style={{ textDecoration: "none" }}
+          >
+            Shop Now
+          </NavLink>
+        </div>
       ) : (
         <>
           <div className="cart_items">
@@ -44,7 +60,7 @@ const Cart = () => {
                 </ul>
                 <ul>
                   <p>Delivery Charges</p>
-                  <p style={{color: "var(--discount-color)"}} >FREE</p>
+                  <p style={{ color: "var(--discount-color)" }}>FREE</p>
                 </ul>
                 <hr className="price_line" />
                 <ul>
@@ -52,8 +68,13 @@ const Cart = () => {
                   <p>₹{totPrice}</p>
                 </ul>
               </li>
-              <p style={{color: "var(--discount-color)"}} >You have saved ₹{discount} on this order.</p>
+              <p style={{ color: "var(--discount-color)" }}>
+                You have saved ₹{discount} on this order.
+              </p>
             </div>
+            <button className="cart_page_btn" onClick={handleCheckout}>
+              Checkout
+            </button>
           </div>
         </>
       )}

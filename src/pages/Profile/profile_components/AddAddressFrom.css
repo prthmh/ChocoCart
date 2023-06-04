@@ -1,0 +1,13 @@
+.address_form {
+  background: wheat;
+  width: 80vw;
+  position: fixed;
+  height: 80vh;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

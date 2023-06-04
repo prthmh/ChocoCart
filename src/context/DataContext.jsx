@@ -22,7 +22,7 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     getProducts();
   }, []);
-  // console.log("context", state.chocolates);
+  // console.log("context", state.chocolates); 
   return (
     <DataContext.Provider
       value={{  state, dispatch }}

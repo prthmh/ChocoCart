@@ -7,6 +7,7 @@ import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
 import { DataProvider, DataContext } from "./context/DataContext";
 import { AuthProvider } from "./context/AuthContext";
+import { AddressProvider } from "./context/AddressContext";
 
 // Call make Server
 makeServer();
@@ -18,7 +19,9 @@ createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <DataProvider>
         <AuthProvider>
-          <App />
+          <AddressProvider>
+            <App />
+          </AddressProvider>
         </AuthProvider>
       </DataProvider>
     </BrowserRouter>
