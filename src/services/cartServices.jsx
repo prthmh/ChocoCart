@@ -1,7 +1,15 @@
 import axios from "axios";
 
-export const addToCartFunc = async (token, dispatch, item, setCartBtnDisabled) => {
+export const addToCartFunc = async (
+  token,
+  dispatch,
+  item,
+  setCartBtnDisabled,
+  setDisableMoveToCartBtn
+) => {
   setCartBtnDisabled && setCartBtnDisabled((prevState) => !prevState);
+  setDisableMoveToCartBtn && setDisableMoveToCartBtn((prevState) => !prevState);
+
   try {
     const {
       data: { cart },
@@ -15,6 +23,7 @@ export const addToCartFunc = async (token, dispatch, item, setCartBtnDisabled) =
     console.error("Error occured while adding item to cart", error);
   }
   setCartBtnDisabled && setCartBtnDisabled((prevState) => !prevState);
+  setDisableMoveToCartBtn && setDisableMoveToCartBtn((prevState) => !prevState);
 };
 
 export const increaseCartItemQty = async (id, token, dispatch) => {

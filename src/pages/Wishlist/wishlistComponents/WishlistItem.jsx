@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./WishlistItem.css";
 import { useAuth } from "../../../context/AuthContext";
 import { useData } from "../../../context/DataContext";
@@ -7,9 +7,13 @@ import {
   addToCartFunc,
   increaseCartItemQty,
 } from "../../../services/cartServices";
-import { isAlreadyPresentInCart, calcDiscount } from "../../../utils/cartAndWishlistUtils";
+import {
+  isAlreadyPresentInCart,
+  calcDiscount,
+} from "../../../utils/cartAndWishlistUtils";
 
 const WishlistItem = ({ item }) => {
+  const [disableMoveToCartBtn, setDisableMoveToCartBtn] = useState(false);
   const { name, brand, price, originalPrice, image } = item;
   const { token } = useAuth();
   const { state, dispatch } = useData();
@@ -20,7 +24,7 @@ const WishlistItem = ({ item }) => {
       removeItemFromWishlist(item._id, token, dispatch);
     } else {
       removeItemFromWishlist(item._id, token, dispatch);
-      addToCartFunc(token, dispatch, item);
+      addToCartFunc(token, dispatch, item, setDisableMoveToCartBtn);
     }
   };
   return (
@@ -33,11 +37,16 @@ const WishlistItem = ({ item }) => {
         {brand}
         <div className="price">
           <b>₹{price}</b> <span className="ogPrice">₹{originalPrice}</span>
-          <span className="disc">{calcDiscount(price, originalPrice)}% off</span>
+          <span className="disc">
+            {calcDiscount(price, originalPrice)}% off
+          </span>
         </div>
         <div>
-          <button className="move_to_btn" onClick={moveToCartFromWishlist}>Move to Cart</button>
-          <button className="remove_btn"
+          <button className="move_to_btn" onClick={moveToCartFromWishlist} disabled={disableMoveToCartBtn} >
+            Move to Cart
+          </button>
+          <button
+            className="remove_btn"
             onClick={() => removeItemFromWishlist(item._id, token, dispatch)}
           >
             Remove from wishlist
