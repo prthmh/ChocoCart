@@ -27,6 +27,9 @@
 .cart_btn[disabled]{
   opacity: 0.5;
 }
+.list_item:hover{
+  border: 2px solid var(--navbar-color);
+}
 @media (min-width: 1024px) {
   .list_item {
     margin: 1rem;

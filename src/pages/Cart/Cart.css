@@ -42,6 +42,7 @@
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     margin: 0 10rem;
+    margin-bottom: 10rem;
   }
   .price_details {
     margin-left: 4rem;

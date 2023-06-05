@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { NavLink } from "react-router-dom";
 import { useData } from "../../context/DataContext";
+import Footer from "../../components/Footer/Footer";
 const Home = () => {
   const { state, dispatch } = useData();
   const [categories, setCategories] = useState([]);
@@ -62,6 +63,7 @@ const Home = () => {
           ))}
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

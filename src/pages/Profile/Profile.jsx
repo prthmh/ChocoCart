@@ -5,6 +5,7 @@ import { useData } from "../../context/DataContext";
 import "./Profile.css";
 // import { useAddress } from "../../context/AddressContext";
 import SavedAddress from "./profile_components/SavedAddress";
+import Footer from "../../components/Footer/Footer";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -23,32 +24,35 @@ const Profile = () => {
   };
   console.log(token);
   return (
-    <div className="account_container">
-      <div className="profile_content">
-        <h2>Profile</h2>
-        <hr className="price_line" />
-        <div className="profile_detail">
-          <div className="profile_titles">
-            <p>Full Name:</p>
-            <p>Email:</p>
+    <>
+      <div className="account_container">
+        <div className="profile_content">
+          <h2>Profile</h2>
+          <hr className="price_line" />
+          <div className="profile_detail">
+            <div className="profile_titles">
+              <p>Full Name:</p>
+              <p>Email:</p>
+            </div>
+            <div>
+              <p>
+                {user?.firstName} {user?.lastName}
+              </p>
+              <p>{user?.email}</p>
+            </div>
           </div>
-          <div>
-            <p>
-              {user?.firstName} {user?.lastName}
-            </p>
-            <p>{user?.email}</p>
-          </div>
+          <button className="profile_page_btn" onClick={handleLogOut}>
+            Log out
+          </button>
         </div>
-        <button className="profile_page_btn" onClick={handleLogOut}>
-          Log out
-        </button>
+        <div className="address_content">
+          <h2>Saved Address</h2>
+          <hr className="price_line" />
+          <SavedAddress />
+        </div>
       </div>
-      <div className="address_content">
-        <h2>Saved Address</h2>
-        <hr className="price_line" />
-        <SavedAddress/>
-      </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 

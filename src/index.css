@@ -7,7 +7,7 @@
   --main-bg-color: #f3e2d2;
   --navbar-color: #371211;
   --text-color-1: #d8a071;
-  --text-color-light: #914B2B;
+  --text-color-light: #914b2b;
   --text-color-hover: #bc560a;
   --text-color-hover2: #e5c3a2;
   --text-color-active: #d8a071;
@@ -19,6 +19,12 @@
 body {
   background-color: var(--main-bg-color);
   font-family: "Comfortaa", cursive;
+}
+.app{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
 }
 nav {
   background-color: var(--navbar-color);
@@ -38,9 +44,10 @@ nav {
 .navName:hover {
   color: var(--text-color-hover);
 }
-/* .navName.active {
-    color: var(--text-color-active);
-  } */
+.navName:active {
+  color: var(--text-color-active);
+  text-decoration: underline;
+}
 .other_routes {
   font-weight: 500;
   display: flex;
@@ -69,18 +76,18 @@ nav {
   text-decoration: line-through;
   color: var(--text-color-light);
 }
-.disc{
+.disc {
   background-color: var(--discount-color);
   border-radius: 4px;
   color: white;
   padding: 2px;
 }
-.price{
+.price {
   display: flex;
   align-items: center;
   gap: 5px;
 }
-.nav-elements{
+.nav-elements {
   position: sticky;
   top: 0;
   z-index: 10;

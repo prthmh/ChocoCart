@@ -38,6 +38,7 @@
         grid-template-columns: 1.5fr 1fr;
         margin: 0 10rem;
         column-gap: 2rem;
+        margin-bottom: 10rem;
     }
     .address_item{
         margin: 1rem;

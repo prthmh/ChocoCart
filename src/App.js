@@ -19,7 +19,7 @@ import Checkout from "./pages/Checkout/Checkout";
 const App = () => {
   const { isLoading } = useContext(DataContext);
   return (
-    <div>
+    <div className="app">
       {isLoading ? (
         <Loading />
       ) : (
