@@ -3,6 +3,7 @@ import { useData } from "../../context/DataContext";
 import Filter from "../../components/Filter";
 import "./ProductList.css";
 import ProductItems from "../../components/ProductItems/ProductItems";
+import Footer from "../../components/Footer/Footer";
 
 const ProductList = () => {
   const { state } = useData();
@@ -28,6 +29,7 @@ const ProductList = () => {
         );
 
   return (
+    <>
     <div className="product_page">
       <aside>
         <Filter />
@@ -38,6 +40,8 @@ const ProductList = () => {
         ))}
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 
