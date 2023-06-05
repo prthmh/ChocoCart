@@ -4,20 +4,14 @@ import "./Cart.css";
 import CartItems from "./cartComponents/CartItems";
 import { NavLink, useNavigate } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
+import { priceAndDiscountCalcFunc } from "../../utils/cartAndWishlistUtils";
 
 const Cart = () => {
   const navigate = useNavigate();
   const { state } = useData();
   const { cart } = state;
   // console.log(cart);
-  const { price, discount } = cart.reduce(
-    (acc, curr) => {
-      acc.price += curr.originalPrice * curr.qty;
-      acc.discount += curr.qty * (curr.originalPrice - curr.price);
-      return acc;
-    },
-    { price: 0, discount: 0 }
-  );
+  const { price, discount } = priceAndDiscountCalcFunc(cart);
   // console.log(price, discount);
   const totPrice = parseFloat(price - discount).toFixed(2);
 

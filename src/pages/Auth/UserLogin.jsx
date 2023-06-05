@@ -36,7 +36,7 @@ const UserLogin = () => {
     <div className="login_container">
       <div className="login_content">
         <h2>Sign in</h2>
-        <hr className="price_line" />
+        <hr className="price_line" /> 
         <form
           className="login_form"
           onSubmit={(event) => event.preventDefault()}

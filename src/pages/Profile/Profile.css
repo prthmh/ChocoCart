@@ -4,6 +4,7 @@
   align-items: center;
   flex-direction: column;
   gap: 1rem;
+  margin-bottom: 3rem;
 }
 .profile_content {
   background-color: var(--bg-for-components);
@@ -31,6 +32,10 @@
   width: 30%;
   border-radius: 0.5rem;
   cursor: pointer;
+}
+.profile_page_btn:hover{
+  opacity: 0.9;
+  color: var(--navbar-color);
 }
 .log_out_btn:hover {
   opacity: 0.7;
@@ -89,4 +94,13 @@
 .delete:hover{
   background-color: red;
   color: white;
+}
+.address_modal{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background-color: rgba(0,0,0,0.5);
 }

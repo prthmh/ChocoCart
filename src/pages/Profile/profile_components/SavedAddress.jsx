@@ -51,13 +51,17 @@ const SavedAddress = () => {
         +Add New Address
       </button>
       {showAddAddressForm && (
-        <AddAddressForm setShowAddAddressForm={setShowAddAddressForm} />
+        <div className="address_modal">
+          <AddAddressForm setShowAddAddressForm={setShowAddAddressForm} />
+        </div>
       )}
       {showEditBtnInForm && (
-        <EditAddressForm
-          setShowEditBtnInForm={setShowEditBtnInForm}
-          editAddress={editAddress}
-        />
+        <div className="address_modal">
+          <EditAddressForm
+            setShowEditBtnInForm={setShowEditBtnInForm}
+            editAddress={editAddress}
+          />
+        </div>
       )}
     </div>
   );

@@ -1,0 +1,29 @@
+.order_summary_page {
+  margin: 0 25rem;
+  margin-bottom: 10rem;
+}
+.orderlist_content {
+  background-color: var(--bg-for-components);
+  border-radius: 1.8rem;
+  padding: 1.5rem;
+}
+.order_item {
+  background-color: var(--product-bg);
+}
+@media (min-width: 1024px) {
+  .order_item {
+    display: flex;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 1.8rem;
+    gap: 1.5rem;
+  }
+  .order_item_img > img {
+    border-radius: 1.8rem;
+  }
+  .order_item_detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+}

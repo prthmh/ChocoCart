@@ -11,3 +11,14 @@ export const isAlreadyPresentInWishlist = (_id, wishlist) => {
 export const calcDiscount = (price, originalPrice) => {
   return Math.round(Math.abs((price / originalPrice) * 100 - 100));
 };
+
+export const priceAndDiscountCalcFunc = (cart) => {
+  return cart.reduce(
+    (acc, curr) => {
+      acc.price += curr.originalPrice * curr.qty;
+      acc.discount += curr.qty * (curr.originalPrice - curr.price);
+      return acc;
+    },
+    { price: 0, discount: 0 }
+  );
+};

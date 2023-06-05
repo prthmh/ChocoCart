@@ -8,6 +8,7 @@ export const initialState = {
   ratingFilter: 0,
   cart: [],
   wishlist: [],
+  orderList: [],
 };
 const DataReducer = (state, action) => {
   switch (action.type) {
@@ -49,6 +50,8 @@ const DataReducer = (state, action) => {
       return { ...state, cart: [...action.payload] };
     case "REMOVE_ITEM_IN_CART":
       return { ...state, cart: [...action.payload] };
+    case "SET_ORDERLIST":
+      return { ...state, orderList: [...state.orderList, action.payload] };
     default:
       return state;
   }

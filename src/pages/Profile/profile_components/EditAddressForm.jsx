@@ -27,8 +27,8 @@ const EditeditAddressData = ({ editAddress, setShowEditBtnInForm }) => {
   return (
     <div className="address_form">
       <div className="form_content">
-        <h2>Edit Address</h2>
-        <form onSubmit={editAddressHandler}>
+        <h2 style={{margin: "0 0 0.3rem 0"}} >Edit Address</h2>
+        <form className="address_add_form" onSubmit={editAddressHandler}>
           <label>Name:</label>
           <input
             type="text"

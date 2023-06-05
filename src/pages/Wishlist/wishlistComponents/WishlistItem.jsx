@@ -41,7 +41,7 @@ const WishlistItem = ({ item }) => {
             {calcDiscount(price, originalPrice)}% off
           </span>
         </div>
-        <div>
+        <div> 
           <button className="move_to_btn" onClick={moveToCartFromWishlist} disabled={disableMoveToCartBtn} >
             Move to Cart
           </button>

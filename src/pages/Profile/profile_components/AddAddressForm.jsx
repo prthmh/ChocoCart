@@ -1,12 +1,11 @@
 import "./AddAddressFrom.css";
-import { v4 as uuid } from "uuid";
 import React, { useState } from "react";
 import { useAddress } from "../../../context/AddressContext";
 
 const AddAddressForm = ({ setShowAddAddressForm }) => {
-  const { addressDispatch } = useAddress();
+  const { addressState, addressDispatch } = useAddress();
   const [addressForm, setAddressForm] = useState({
-    id: uuid(),
+    id: addressState?.addresses.length + 1,
     name: "",
     street: "",
     city: "",
@@ -18,15 +17,31 @@ const AddAddressForm = ({ setShowAddAddressForm }) => {
 
   const addAddressHandler = (event) => {
     event.preventDefault();
-    addressDispatch({ type: "SET_USER_ADDRESS", payload: addressForm });
+    addressDispatch({ type: "ADD_USER_ADDRESS", payload: addressForm });
+    setShowAddAddressForm(false);
+  };
+
+  const addDummyData = (event) => {
+    event.preventDefault();
+    setAddressForm({
+      id: addressState?.addresses.length + 1,
+      name: "Walter White",
+      street: "308 Negra Arroyo Lane",
+      city: "Albuquerque",
+      state: "New Mexico",
+      zipcode: "9087650",
+      country: "USA",
+      mobile: "9876543056",
+    });
+    addressDispatch({ type: "ADD_USER_ADDRESS", payload: addressForm });
     setShowAddAddressForm(false);
   };
 
   return (
     <div className="address_form">
       <div className="form_content">
-        <h2>Add New Address</h2>
-        <form onSubmit={addAddressHandler}>
+        <h2 style={{ margin: "0 0 0.3rem 0" }}>Add New Address</h2>
+        <form className="address_add_form" >
           <label>Name:</label>
           <input
             type="text"
@@ -120,8 +135,18 @@ const AddAddressForm = ({ setShowAddAddressForm }) => {
             }
           />
           <div className="form_btns">
-            <button type="submit">Add</button>
-            <button onClick={() => setShowAddAddressForm(false)}>Cancel</button>
+            <button className="address_add_btn" onClick={addAddressHandler}>
+              Add
+            </button>
+            <button className="dummy_data" onClick={addDummyData}>
+              Add Dummy Data
+            </button>
+            <button
+              className="cancel_btn"
+              onClick={() => setShowAddAddressForm(false)}
+            >
+              Cancel
+            </button>
           </div>
         </form>
       </div>

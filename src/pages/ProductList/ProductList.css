@@ -19,6 +19,7 @@ input {
     margin: 16px;
     display: grid;
     grid-template-columns: 0.2fr 1fr;
+    margin-bottom: 3rem;
   }
   .filter_header {
     display: flex;

@@ -1,12 +1,10 @@
 // import React from "react";
-import { v4 as uuid } from "uuid";
 
 const AddressReducer = (addressState, addressAction) => {
-  console.log(addressState);
   switch (addressAction.type) {
     case "SET_SELETED_ADDRESS":
       return { ...addressState, seletedAddress: addressAction.payload };
-    case "SET_USER_ADDRESS":
+    case "ADD_USER_ADDRESS":
       return {
         ...addressState,
         addresses: [...addressState.addresses, addressAction.payload],
@@ -32,7 +30,7 @@ export default AddressReducer;
 export const initialAddressState = {
   addresses: [
     {
-      id: uuid(),
+      id: 0,
       name: "Prathmesh",
       street: "Shankar Nagar",
       city: "Nagpur",
@@ -42,7 +40,7 @@ export const initialAddressState = {
       mobile: "123456789",
     },
     {
-      id: uuid(),
+      id: 1,
       name: "Jay",
       street: "Om Nagar",
       city: "Nashik",
@@ -52,5 +50,14 @@ export const initialAddressState = {
       mobile: "123456789",
     },
   ],
-  seletedAddress: {},
+  seletedAddress:   {
+    id: 0,
+    name: "Prathmesh",
+    street: "Shankar Nagar",
+    city: "Nagpur",
+    state: "Maharashtra",
+    zipcode: "440025",
+    country: "India",
+    mobile: "123456789",
+  },
 };

@@ -15,6 +15,7 @@ import Cart from "./pages/Cart/Cart";
 import Wishlist from "./pages/Wishlist/Wishlist";
 import IndividualProductPage from "./pages/IndividualProductPage/IndividualProductPage";
 import Checkout from "./pages/Checkout/Checkout";
+import OrderSummary from "./pages/OrderSummary/OrderSummary";
 
 const App = () => {
   const { isLoading } = useContext(DataContext);
@@ -28,11 +29,15 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/productlist" element={<ProductList />} />
-            <Route path="/product/:productId" element={<IndividualProductPage/>} />
+            <Route
+              path="/product/:productId"
+              element={<IndividualProductPage />}
+            />
             <Route path="/mockman" element={<Mockman />} />
             <Route path="*" element={<ErrorPage />} />
             <Route path="/login" element={<UserLogin />} />
             <Route path="/signup" element={<UserSignUp />} />
+            <Route path="/ordersummary" element={<OrderSummary />} />
             <Route
               path="/profile"
               element={

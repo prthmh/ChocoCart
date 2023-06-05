@@ -2,12 +2,12 @@
     background-color: var(--bg-for-components);
     border-radius: 1.8rem;
     padding: 1.5rem;
+    height: fit-content;
 }
 .price_card{
     background-color: var(--bg-for-components);
     border-radius: 1.8rem;
     padding: 1.5rem;
-    margin-right: 4rem;
     height: fit-content;
 }
 .address_item{
