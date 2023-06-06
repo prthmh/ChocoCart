@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { loginService, signUpService } from "../services/authServices";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext();
 
@@ -24,7 +25,17 @@ export const AuthProvider = ({ children }) => {
           setToken(encodedToken);
           localStorage.setItem("user", JSON.stringify({ user: foundUser }));
           setUser(foundUser);
-          //write code for address management
+
+          toast.success("Logged in succesfully!", {
+            position: "top-center",
+            autoClose: 800,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
         }
       } catch (error) {
         console.error(
@@ -45,8 +56,18 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem("signup", JSON.stringify({ token: encodedToken }));
         setToken(encodedToken);
         localStorage.setItem("user", JSON.stringify({ user: createdUser }));
-        //write code for address management
+        setUser(createdUser);
       }
+      toast.success("New Account created successfully!", {
+        position: "top-center",
+        autoClose: 800,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     } catch (error) {
       console.log(
         "Signup unsuccessful. There was error while signing up",
@@ -54,8 +75,6 @@ export const AuthProvider = ({ children }) => {
       );
     }
   };
-
-  //write code for address management
 
   return (
     <AuthContext.Provider

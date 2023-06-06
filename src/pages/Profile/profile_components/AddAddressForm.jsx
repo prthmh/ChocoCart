@@ -1,6 +1,7 @@
 import "./AddAddressFrom.css";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useAddress } from "../../../context/AddressContext";
+import { toast } from "react-toastify";
 
 const AddAddressForm = ({ setShowAddAddressForm }) => {
   const { addressState, addressDispatch } = useAddress();
@@ -15,10 +16,61 @@ const AddAddressForm = ({ setShowAddAddressForm }) => {
     mobile: "",
   });
 
+  // const addAddressHandler = (event) => {
+  //   event.preventDefault();
+  //   addressDispatch({ type: "ADD_USER_ADDRESS", payload: addressForm });
+  //   setShowAddAddressForm(false);
+  //   toast.success('New Addreess added!', {
+  //     position: "top-center",
+  //     autoClose: 800,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //     theme: "dark",
+  //     });
+  // };
+
+  // const addDummyData = (event) => {
+  //   event.preventDefault();
+  //   setAddressForm({
+  //     id: addressState?.addresses.length + 1,
+  //     name: "Walter White",
+  //     street: "308 Negra Arroyo Lane",
+  //     city: "Albuquerque",
+  //     state: "New Mexico",
+  //     zipcode: "9087650",
+  //     country: "USA",
+  //     mobile: "9876543056",
+  //   });
+  //   addressDispatch({ type: "ADD_USER_ADDRESS", payload: addressForm });
+  //   setShowAddAddressForm(false);
+  // };
+  useEffect(() => {
+    if (addressForm.name !== "") {
+      // Dispatch the ADD_USER_ADDRESS action and close the form
+      addressDispatch({ type: "ADD_USER_ADDRESS", payload: addressForm });
+      setShowAddAddressForm(false);
+      toast.success("New Address added!", {
+        position: "top-center",
+        autoClose: 800,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+  }, [addressForm, addressDispatch, setShowAddAddressForm]);
+
   const addAddressHandler = (event) => {
     event.preventDefault();
-    addressDispatch({ type: "ADD_USER_ADDRESS", payload: addressForm });
-    setShowAddAddressForm(false);
+    setAddressForm((formData) => ({
+      ...formData,
+      id: addressState?.addresses.length + 1,
+    }));
   };
 
   const addDummyData = (event) => {
@@ -33,8 +85,6 @@ const AddAddressForm = ({ setShowAddAddressForm }) => {
       country: "USA",
       mobile: "9876543056",
     });
-    addressDispatch({ type: "ADD_USER_ADDRESS", payload: addressForm });
-    setShowAddAddressForm(false);
   };
 
   return (

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./AddAddressFrom.css";
 import { useAddress } from "../../../context/AddressContext";
+import { toast } from "react-toastify";
 
 const EditeditAddressData = ({ editAddress, setShowEditBtnInForm }) => {
   const { addressDispatch } = useAddress();
@@ -22,6 +23,16 @@ const EditeditAddressData = ({ editAddress, setShowEditBtnInForm }) => {
       payload: [editAddress.id, editAddressData],
     });
     setShowEditBtnInForm(false);
+    toast.success('Address Edited!', {
+      position: "top-center",
+      autoClose: 800,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
   };
 
   return (
@@ -122,8 +133,8 @@ const EditeditAddressData = ({ editAddress, setShowEditBtnInForm }) => {
             }
           />
           <div className="form_btns">
-            <button type="submit">Add</button>
-            <button onClick={() => setShowEditBtnInForm(false)}>Cancel</button>
+            <button type="submit" className="address_add_btn">Edit</button>
+            <button onClick={() => setShowEditBtnInForm(false)} className="cancel_btn">Cancel</button>
           </div>
         </form>
       </div>
@@ -133,11 +144,4 @@ const EditeditAddressData = ({ editAddress, setShowEditBtnInForm }) => {
 
 export default EditeditAddressData;
 
-// id: uuid(),
-// name: "Prathmesh",
-// street: "Shankar Nagar",
-// city: "Nagpur",
-// state: "Maharashtra",
-// zipcode: "440025",
-// country: "India",
-// mobile: "123456789",
+

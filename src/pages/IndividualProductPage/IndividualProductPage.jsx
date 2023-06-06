@@ -11,6 +11,7 @@ import { useAuth } from "../../context/AuthContext";
 import { addToCartFunc } from "../../services/cartServices";
 import { addToWishlistFunc } from "../../services/wishlistServices";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const IndividualProductPage = () => {
   const navigate = useNavigate();
@@ -22,8 +23,16 @@ const IndividualProductPage = () => {
   } = useData();
   const productFind = chocolates.find(({ _id }) => _id === productId);
   console.log(productFind);
-  const {_id, name, brand, price, originalPrice, categoryName, rating, image } =
-    productFind;
+  const {
+    _id,
+    name,
+    brand,
+    price,
+    originalPrice,
+    categoryName,
+    rating,
+    image,
+  } = productFind;
 
   const isInCart = isAlreadyPresentInCart(_id, cart);
   const isInWishlist = isAlreadyPresentInWishlist(_id, wishlist);
@@ -32,7 +41,7 @@ const IndividualProductPage = () => {
     token
       ? isInCart
         ? navigate("/cart")
-        : addToCartFunc(token, dispatch, productFind)
+        : addToCartFunc(token, dispatch, productFind, toast)
       : navigate("/login");
   };
 
@@ -40,7 +49,7 @@ const IndividualProductPage = () => {
     token
       ? isInWishlist
         ? navigate("/wishlist")
-        : addToWishlistFunc(token, dispatch, productFind)
+        : addToWishlistFunc(token, dispatch, productFind, toast)
       : navigate("/login");
   };
   return (

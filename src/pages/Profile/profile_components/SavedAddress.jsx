@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useAddress } from "../../../context/AddressContext";
 import AddAddressForm from "./AddAddressForm";
 import EditAddressForm from "./EditAddressForm";
+import { toast } from "react-toastify";
 
 const SavedAddress = () => {
   const { addressState, addressDispatch } = useAddress();
@@ -14,6 +15,16 @@ const SavedAddress = () => {
       ({ id }) => id !== addressId
     );
     addressDispatch({ type: "DELETE_ADDRESS", payload: newAddressList });
+    toast.warn("Address Deleted", {
+      position: "top-center",
+      autoClose: 800,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   };
 
   return (
@@ -32,6 +43,7 @@ const SavedAddress = () => {
             onClick={() => {
               setShowEditBtnInForm(true);
               setEditAddress(address);
+              
             }}
           >
             Edit

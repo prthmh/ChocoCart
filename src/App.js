@@ -16,6 +16,8 @@ import Wishlist from "./pages/Wishlist/Wishlist";
 import IndividualProductPage from "./pages/IndividualProductPage/IndividualProductPage";
 import Checkout from "./pages/Checkout/Checkout";
 import OrderSummary from "./pages/OrderSummary/OrderSummary";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const { isLoading } = useContext(DataContext);
@@ -26,6 +28,8 @@ const App = () => {
       ) : (
         <>
           <NavBar />
+          <ToastContainer limit="2" />
+
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/productlist" element={<ProductList />} />
