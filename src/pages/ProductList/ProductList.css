@@ -3,7 +3,6 @@
   font-size: 13px; */
   background-color: var(--bg-for-components);
   border-radius: 1.8rem;
-  /* position: fixed; */
 }
 .products {
   margin-left: 1.5rem;
@@ -20,6 +19,7 @@ input {
     margin: 16px;
     display: grid;
     grid-template-columns: 0.2fr 1fr;
+    margin-bottom: 3rem;
   }
   .filter_header {
     display: flex;
@@ -27,6 +27,10 @@ input {
   }
   .filter {
     padding: 10px;
+    /* position: fixed; */
+    position: sticky;
+    top: 0;
+    z-index: 8;
   }
   .products {
     padding: 10px;

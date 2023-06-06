@@ -1,0 +1,14 @@
+.wishlist_page {
+  background-color: var(--bg-for-components);
+  border-radius: 1.8rem;
+  padding: 1.5rem;
+}
+@media (min-width: 1024px) {
+  .wishlist_page {
+    margin: 0 25rem;
+    margin-bottom: 10rem;
+  }
+  .item_img > img {
+    border-radius: 1.8rem;
+  }
+}

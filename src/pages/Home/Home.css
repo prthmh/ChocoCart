@@ -5,13 +5,14 @@
   display: flex;
   border-radius: 1.8em;
   margin-top: 0;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 .header img {
   border-radius: 1.8em;
 }
 .heading {
   display: flex;
+  justify-content: space-around;
   flex-direction: column;
   margin-right: 0.5rem;
 }
@@ -51,6 +52,10 @@
 .item h3 {
   margin-bottom: 0;
 }
+.item:hover{
+  border: 1px solid var(--navbar-color);
+  background-color: var(--main-bg-color);
+}
 @media (min-width: 400px) {
   .header img {
     object-fit: cover;
@@ -69,6 +74,9 @@
   }
 }
 @media (min-width: 1024px) {
+  /* .home_page{
+    margin: 0 4rem;
+  } */
   .category {
     flex-direction: row;
     justify-content: space-evenly;

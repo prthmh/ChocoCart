@@ -1,10 +1,10 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useReducer } from "react";
-import FilterReducer, { initialState } from "../reducer/FilterReducer";
+import DataReducer, { initialState } from "../reducer/DataReducer";
 
 export const DataContext = createContext();
 export const DataProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(FilterReducer, initialState);
+  const [state, dispatch] = useReducer(DataReducer, initialState);
   // const [isLoading, setIsLoading] = useState(false);
   const getProducts = async () => {
     try {
@@ -22,9 +22,11 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     getProducts();
   }, []);
-console.log("context",state.chocolates)
+  // console.log("context", state.chocolates); 
   return (
-    <DataContext.Provider value={{products: state.chocolates , state, dispatch }}>
+    <DataContext.Provider
+      value={{  state, dispatch }}
+    >
       {children}
     </DataContext.Provider>
   );

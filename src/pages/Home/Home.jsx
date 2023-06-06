@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { NavLink } from "react-router-dom";
 import { useData } from "../../context/DataContext";
+import Footer from "../../components/Footer/Footer";
 const Home = () => {
   const { state, dispatch } = useData();
   const [categories, setCategories] = useState([]);
@@ -47,7 +48,7 @@ const Home = () => {
         <h1 style={{ textAlign: "center" }}>Categories</h1>
         <div className="category">
           {categories.map((item) => (
-            <div id="item._id" className="item">
+            <div key={item._id} className="item">
               <h3>{item.categoryName}</h3>
               <p>{item.description}</p>
               <NavLink to="/productlist">
@@ -62,6 +63,7 @@ const Home = () => {
           ))}
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

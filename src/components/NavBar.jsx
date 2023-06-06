@@ -1,9 +1,16 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useData } from "../context/DataContext";
+import { useAuth } from "../context/AuthContext";
+import "../index.css";
+import "./NavBar.css";
 
 const NavBar = () => {
-  const { dispatch } = useData();
+  const { token } = useAuth();
+  const {
+    state: { cart, wishlist },
+    dispatch,
+  } = useData();
   const navigate = useNavigate();
   const handlesearch = (event) => {
     event.target.length === 0
@@ -24,11 +31,25 @@ const NavBar = () => {
           onChange={handlesearch}
         />
         <div className="other_routes">
-          <NavLink className="navName">Cart</NavLink>
-          {/* <span style={{ padding: "1em" }}></span> */}
-          <NavLink className="navName">Wishlist</NavLink>
-          {/* <span style={{ padding: "1em" }}></span> */}
-          <NavLink className="navName">Sign In</NavLink>
+          <NavLink to="/productlist" className="navName">
+            Chocolates
+          </NavLink>
+
+          <div style={{ position: "relative" }}>
+            <NavLink to="/cart" className="navName">
+              Cart
+            </NavLink>
+            <span className="item_quantity">{cart.length}</span>
+          </div>
+          <div>
+            <NavLink to="wishlist" className="navName">
+              Wishlist
+            </NavLink>
+            <span className="item_quantity">{wishlist.length}</span>
+          </div>
+          <NavLink to="/profile" className="navName">
+            {token ? "Profile" : "Sign in"}
+          </NavLink>
         </div>
       </nav>
     </div>

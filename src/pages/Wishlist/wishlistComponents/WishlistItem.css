@@ -1,0 +1,20 @@
+.wishlist_item {
+  background-color: var(--product-bg);
+}
+@media (min-width: 1024px) {
+  .wishlist_item {
+    display: flex;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 1.8rem;
+    gap: 1.5rem;
+  }
+  .wishlist_item_img > img {
+    border-radius: 1.8rem;
+  }
+  .wishlist_item_detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
