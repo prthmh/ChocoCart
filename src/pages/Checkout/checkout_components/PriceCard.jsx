@@ -24,16 +24,7 @@ const PriceCard = () => {
   const handlePlaceOrderBtn = () => {
     dispatch({ type: "SET_ORDERLIST", payload: cart });
     navigate("/ordersummary");
-    toast.success("Order Placed Successfully🥳", {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
+    toast.success("Order Placed Successfully🥳");
     dispatch({type: "ORDER_PLACED"});
   };
 

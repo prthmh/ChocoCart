@@ -20,16 +20,7 @@ export const addToCartFunc = async (
       { headers: { authorization: token } }
     );
 
-    toast.info("Added to Cart!", {
-            position: "top-center",
-            autoClose: 800,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-          })
+    toast.info("Added to Cart!")
     dispatch({ type: "ADD_TO_CART", payload: cart });
   } catch (error) {
     console.error("Error occured while adding item to cart", error);
@@ -84,16 +75,7 @@ export const removeItemFromCart = async (id, token, dispatch) => {
       headers: { authorization: token },
     });
 
-    toast.warn('Product removed from cart', {
-      position: "top-center",
-      autoClose: 800,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-      });
+    toast.warn('Product removed from cart');
     dispatch({ type: "REMOVE_ITEM_IN_CART", payload: cart });
   } catch (error) {
     console.log("Error occured while removing item form cart", error);
