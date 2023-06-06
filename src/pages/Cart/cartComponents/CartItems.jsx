@@ -15,9 +15,7 @@ const CartItems = ({ item }) => {
   const { name, brand, price, originalPrice, image, qty } = item;
   const { dispatch } = useData();
   const { token } = useAuth();
-  // console.log(_id);
-  // console.log("t", token);
-  // console.log(dispatch)
+ 
   const moveToWishlistFromCart = () => {
     addToWishlistFunc(token, dispatch, item, setDisableMoveToWishlistBtn);
     removeItemFromCart(item._id, token, dispatch);

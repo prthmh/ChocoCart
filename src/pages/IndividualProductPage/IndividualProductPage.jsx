@@ -11,7 +11,6 @@ import { useAuth } from "../../context/AuthContext";
 import { addToCartFunc } from "../../services/cartServices";
 import { addToWishlistFunc } from "../../services/wishlistServices";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 
 const IndividualProductPage = () => {
   const navigate = useNavigate();
@@ -41,7 +40,7 @@ const IndividualProductPage = () => {
     token
       ? isInCart
         ? navigate("/cart")
-        : addToCartFunc(token, dispatch, productFind, toast)
+        : addToCartFunc(token, dispatch, productFind)
       : navigate("/login");
   };
 
@@ -49,7 +48,7 @@ const IndividualProductPage = () => {
     token
       ? isInWishlist
         ? navigate("/wishlist")
-        : addToWishlistFunc(token, dispatch, productFind, toast)
+        : addToWishlistFunc(token, dispatch, productFind)
       : navigate("/login");
   };
   return (

@@ -15,16 +15,7 @@ const SavedAddress = () => {
       ({ id }) => id !== addressId
     );
     addressDispatch({ type: "DELETE_ADDRESS", payload: newAddressList });
-    toast.warn("Address Deleted", {
-      position: "top-center",
-      autoClose: 800,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
+    toast.warn("Address Deleted");
   };
 
   return (

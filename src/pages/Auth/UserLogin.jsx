@@ -9,13 +9,6 @@ const UserLogin = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  useEffect(() => {
-    async function loginHandler() {
-      userLoginFunc(loginData.email, loginData.password);
-    }
-    loginHandler();
-  }, [loginData.email, loginData.password, userLoginFunc]);
-
   if (token) {
     setTimeout(() => {
       navigate(location?.state?.form?.pathname || "/productlist", {
@@ -31,7 +24,13 @@ const UserLogin = () => {
       email: "prathmesh@gmail.com",
       password: "prathmeshUm",
     }));
+    userLoginFunc(loginData.email, loginData.password);
   };
+
+  const loginHandler = () => {
+    userLoginFunc(loginData.email, loginData.password);
+  }
+
   return (
     <div className="login_container">
       <div className="login_content">
@@ -67,6 +66,8 @@ const UserLogin = () => {
               }))
             }
           />
+
+          <div className="login_btn" onClick={loginHandler} > Log in </div>
 
           <div className="login_test_creds"  onClick={loginWithTestCreds} style={{ cursor: "pointer" }}>
             Login with Test Credentials

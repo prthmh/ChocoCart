@@ -21,16 +21,7 @@ const Profile = () => {
     setUser();
     setToken("");
     navigate("/");
-    toast.success("Logged out successfully!", {
-      position: "top-center",
-      autoClose: 800,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
+    toast.success("Logged out successfully!");
     //you have to add a loader
   };
   return (

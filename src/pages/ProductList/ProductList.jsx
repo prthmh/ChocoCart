@@ -7,7 +7,7 @@ import Footer from "../../components/Footer/Footer";
 
 const ProductList = () => {
   const { state } = useData();
-  // console.log("pl",state.chocolates);
+  
   const priceSortData = state.priceFilter
     ? state.priceFilter === "lowToHigh"
       ? state.chocolates?.sort((a, b) => a.price - b.price)

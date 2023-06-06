@@ -28,7 +28,19 @@ const App = () => {
       ) : (
         <>
           <NavBar />
-          <ToastContainer limit="2" />
+          <ToastContainer
+            limit="2"
+            position="top-center"
+            autoClose={800}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
 
           <Routes>
             <Route path="/" element={<Home />} />

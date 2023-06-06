@@ -43,3 +43,15 @@
 #new_acc:hover {
   opacity: 0.9;
 }
+
+.login_btn{
+  background-color: #622825;
+  padding: 8px 15px;
+  color: #f3e2d2;
+  border-radius: 0.5rem;
+  width: fit-content;
+  align-self: center;
+}
+.login_btn:hover{
+  opacity: 0.9;
+}

@@ -20,16 +20,7 @@ const AddAddressForm = ({ setShowAddAddressForm }) => {
     event.preventDefault();
     addressDispatch({ type: "ADD_USER_ADDRESS", payload: addressForm });
     setShowAddAddressForm(false);
-    toast.success("New Addreess added!", {
-      position: "top-center",
-      autoClose: 800,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
+    toast.success("New Addreess added!");
   };
 
   return (
