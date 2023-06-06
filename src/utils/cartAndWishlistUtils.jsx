@@ -22,3 +22,6 @@ export const priceAndDiscountCalcFunc = (cart) => {
     { price: 0, discount: 0 }
   );
 };
+
+export const getTotalAmount = (price, discount) =>
+  parseFloat(price - discount).toFixed(2);

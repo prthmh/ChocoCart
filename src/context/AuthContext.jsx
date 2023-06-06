@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }) => {
           toast.success("Logged in succesfully!", {
             position: "top-center",
             autoClose: 800,
-            hideProgressBar: false,
+            hideProgressBar: false, 
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,

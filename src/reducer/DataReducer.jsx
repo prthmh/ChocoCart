@@ -52,6 +52,8 @@ const DataReducer = (state, action) => {
       return { ...state, cart: [...action.payload] };
     case "SET_ORDERLIST":
       return { ...state, orderList: [...state.orderList, action.payload] };
+    case "ORDER_PLACED":
+      return { ...state, cart: [] };
     default:
       return state;
   }

@@ -2,8 +2,12 @@ import React from "react";
 import { useAddress } from "../../../context/AddressContext";
 import { useData } from "../../../context/DataContext";
 import "./PriceCard.css";
-import { priceAndDiscountCalcFunc } from "../../../utils/cartAndWishlistUtils";
+import {
+  getTotalAmount,
+  priceAndDiscountCalcFunc,
+} from "../../../utils/cartAndWishlistUtils";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const PriceCard = () => {
   const {
@@ -16,11 +20,21 @@ const PriceCard = () => {
   const navigate = useNavigate();
 
   const { price, discount } = priceAndDiscountCalcFunc(cart);
-  const totPrice = parseFloat(price - discount).toFixed(2);
 
   const handlePlaceOrderBtn = () => {
     dispatch({ type: "SET_ORDERLIST", payload: cart });
     navigate("/ordersummary");
+    toast.success("Order Placed Successfully🥳", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+    dispatch({type: "ORDER_PLACED"});
   };
 
   return (
@@ -57,7 +71,7 @@ const PriceCard = () => {
             </ul>
             <ul>
               <p>Total Amount</p>
-              <p>₹{totPrice}</p>
+              <p>₹{getTotalAmount(price, discount)}</p>
             </ul>
           </li>
         </div>

@@ -23,7 +23,7 @@ const Profile = () => {
     navigate("/");
     toast.success("Logged out successfully!", {
       position: "top-center",
-      autoClose: 5000,
+      autoClose: 800,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,

@@ -4,16 +4,13 @@ import "./Cart.css";
 import CartItems from "./cartComponents/CartItems";
 import { NavLink, useNavigate } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
-import { priceAndDiscountCalcFunc } from "../../utils/cartAndWishlistUtils";
+import { getTotalAmount, priceAndDiscountCalcFunc } from "../../utils/cartAndWishlistUtils";
 
 const Cart = () => {
   const navigate = useNavigate();
   const { state } = useData();
   const { cart } = state;
-  // console.log(cart);
   const { price, discount } = priceAndDiscountCalcFunc(cart);
-  // console.log(price, discount);
-  const totPrice = parseFloat(price - discount).toFixed(2);
 
   const handleCheckout = () => {
     navigate("/checkout");
@@ -61,7 +58,7 @@ const Cart = () => {
                   <hr className="price_line" />
                   <ul>
                     <p>Total Amount</p>
-                    <p>₹{totPrice}</p>
+                    <p>₹{getTotalAmount(price,discount)}</p>
                   </ul>
                 </li>
                 <p style={{ color: "var(--discount-color)" }}>

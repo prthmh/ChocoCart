@@ -1,0 +1,10 @@
+.item_quantity{
+    background-color: var(--bg-for-components);
+    border-radius: 50%;
+    padding: 0.3rem 0.4rem;
+    font-size: 10px;
+    color: var(--navbar-color);
+    position: relative;
+    bottom: 10px;
+    /* right: 2px; */
+}
