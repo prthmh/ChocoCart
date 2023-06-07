@@ -49,16 +49,7 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem("user", JSON.stringify({ user: createdUser }));
         setUser(createdUser);
       }
-      toast.success("New Account created successfully!", {
-        position: "top-center",
-        autoClose: 800,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+      toast.success("New Account created successfully!");
     } catch (error) {
       console.log(
         "Signup unsuccessful. There was error while signing up",

@@ -1,9 +1,13 @@
 import React from "react";
+import loaderSvg from "../assests/loader.svg";
+import "./Loading.css";
 
 const Loading = () => {
   return (
-    <div style={{ margin: "auto" }}>
-      <h1>Loading</h1>
+    <div className="center_loader">
+      <div className="loader_wrapper">
+        <img src={loaderSvg} alt="Loading..." />
+      </div>
     </div>
   );
 };
