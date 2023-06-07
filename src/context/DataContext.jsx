@@ -1,11 +1,11 @@
 import axios from "axios";
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer, useState } from "react";
 import DataReducer, { initialState } from "../reducer/DataReducer";
 
 export const DataContext = createContext();
 export const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(DataReducer, initialState);
-  // const [isLoading, setIsLoading] = useState(false);
+  const [loader, setLoader] = useState(false);
   const getProducts = async () => {
     try {
       const { status, data } = await axios.get("/api/products");
@@ -22,11 +22,9 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     getProducts();
   }, []);
-  // console.log("context", state.chocolates); 
+  // console.log("context", state.chocolates);
   return (
-    <DataContext.Provider
-      value={{  state, dispatch }}
-    >
+    <DataContext.Provider value={{ state, dispatch, loader, setLoader }}>
       {children}
     </DataContext.Provider>
   );

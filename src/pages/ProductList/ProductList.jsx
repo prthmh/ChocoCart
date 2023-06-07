@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useData } from "../../context/DataContext";
 import Filter from "../../components/Filter";
 import "./ProductList.css";
 import ProductItems from "../../components/ProductItems/ProductItems";
 import Footer from "../../components/Footer/Footer";
+import Loading from "../../components/Loading";
 
 const ProductList = () => {
-  const { state } = useData();
-  
+  const { state, setLoader } = useData();
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoader(false);
+      setIsLoading(false);
+    }, 600);
+
+    return () => clearTimeout(timer);
+  }, [setLoader]);
+
   const priceSortData = state.priceFilter
     ? state.priceFilter === "lowToHigh"
       ? state.chocolates?.sort((a, b) => a.price - b.price)
@@ -30,17 +42,23 @@ const ProductList = () => {
 
   return (
     <>
-    <div className="product_page">
-      <aside>
-        <Filter />
-      </aside>
-      <div className="products">
-        {searchData?.map((item) => (
-          <ProductItems key={item.id} item={item} />
-        ))}
-      </div>
-    </div>
-    <Footer/>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <div className="product_page">
+            <aside>
+              <Filter />
+            </aside>
+            <div className="products">
+              {searchData?.map((item) => (
+                <ProductItems key={item.id} item={item} />
+              ))}
+            </div>
+          </div>
+          <Footer />
+        </>
+      )}
     </>
   );
 };

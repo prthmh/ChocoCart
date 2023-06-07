@@ -1,25 +1,20 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-import { useData } from "../../context/DataContext";
 import "./Profile.css";
-// import { useAddress } from "../../context/AddressContext";
 import SavedAddress from "./profile_components/SavedAddress";
 import Footer from "../../components/Footer/Footer";
 import { toast } from "react-toastify";
 
 const Profile = () => {
   const navigate = useNavigate();
-  const { dispatch } = useData();
   const { setToken, user, setUser } = useAuth();
-  // const { addressState, addressDispatch } = useAddress();
   const handleLogOut = () => {
-    dispatch({ type: "LOG_OUT" });
     localStorage.removeItem("login");
     localStorage.removeItem("user");
     localStorage.removeItem("signup");
-    setUser();
-    setToken("");
+    setUser(null);
+    setToken(null);
     navigate("/");
     toast.success("Logged out successfully!");
     //you have to add a loader

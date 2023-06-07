@@ -39,13 +39,13 @@ const NavBar = () => {
             <NavLink to="/cart" className="navName">
               Cart
             </NavLink>
-            <span className="item_quantity">{cart.length}</span>
+            {token && <span className="item_quantity">{cart.length}</span>}
           </div>
           <div>
             <NavLink to="wishlist" className="navName">
               Wishlist
             </NavLink>
-            <span className="item_quantity">{wishlist.length}</span>
+            {token && <span className="item_quantity">{wishlist.length}</span>}
           </div>
           <NavLink to="/profile" className="navName">
             {token ? "Profile" : "Sign in"}

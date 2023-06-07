@@ -8,7 +8,7 @@ export const initialState = {
   ratingFilter: 0,
   cart: [],
   wishlist: [],
-  orderList: [],
+  orderList: [], 
 };
 const DataReducer = (state, action) => {
   switch (action.type) {
@@ -38,12 +38,12 @@ const DataReducer = (state, action) => {
       return { ...state, wishlist: [...action.payload] };
     case "REMOVE_ITEM_FROM_WISHLIST":
       return { ...state, wishlist: [...action.payload] };
-    case "LOG_OUT":
-      return {
-        ...state,
-        cart: [],
-        wishlist: [],
-      };
+    // case "LOG_OUT":
+    //   return {
+    //     ...state,
+    //     cart: [],
+    //     wishlist: [],
+    //   };
     case "INC_CART_QTY":
       return { ...state, cart: [...action.payload] };
     case "DEC_CART_QTY":
