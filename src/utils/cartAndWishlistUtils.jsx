@@ -13,7 +13,7 @@ export const calcDiscount = (price, originalPrice) => {
 };
 
 export const priceAndDiscountCalcFunc = (cart) => {
-  return cart.reduce(
+  return cart.reduce( 
     (acc, curr) => {
       acc.price += curr.originalPrice * curr.qty;
       acc.discount += curr.qty * (curr.originalPrice - curr.price);

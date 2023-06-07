@@ -11,15 +11,19 @@ import {
   isAlreadyPresentInCart,
   calcDiscount,
 } from "../../../utils/cartAndWishlistUtils";
+import { NavLink } from "react-router-dom";
 
 const WishlistItem = ({ item }) => {
   const [disableMoveToCartBtn, setDisableMoveToCartBtn] = useState(false);
-  const { name, brand, price, originalPrice, image } = item;
+  const { _id, name, brand, price, originalPrice, image } = item;
   const { token } = useAuth();
-  const { state, dispatch } = useData();
+  const {
+    state: { cart },
+    dispatch,
+  } = useData();
 
   const moveToCartFromWishlist = () => {
-    if (isAlreadyPresentInCart(item._id, state.cart)) {
+    if (isAlreadyPresentInCart(_id, cart)) {
       increaseCartItemQty(item._id, token, dispatch);
       removeItemFromWishlist(item._id, token, dispatch);
     } else {
@@ -27,6 +31,9 @@ const WishlistItem = ({ item }) => {
       addToCartFunc(token, dispatch, item, setDisableMoveToCartBtn);
     }
   };
+
+  const isInCart = isAlreadyPresentInCart(_id, cart);
+
   return (
     <div className="wishlist_item">
       <div className="wishlist_item_img">
@@ -41,10 +48,20 @@ const WishlistItem = ({ item }) => {
             {calcDiscount(price, originalPrice)}% off
           </span>
         </div>
-        <div> 
-          <button className="move_to_btn" onClick={moveToCartFromWishlist} disabled={disableMoveToCartBtn} >
-            Move to Cart
-          </button>
+        <div>
+          {isInCart ? (
+            <NavLink to="/cart" className="move_to_btn">
+              Already in Cart
+            </NavLink>
+          ) : (
+            <button
+              className="move_to_btn"
+              onClick={moveToCartFromWishlist}
+              disabled={disableMoveToCartBtn}
+            >
+              Move to Cart
+            </button>
+          )}
           <button
             className="remove_btn"
             onClick={() => removeItemFromWishlist(item._id, token, dispatch)}

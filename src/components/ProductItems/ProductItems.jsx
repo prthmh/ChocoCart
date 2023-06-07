@@ -25,7 +25,7 @@ const ProductItems = ({ item }) => {
 
   const addtoCartHandler = () => {
     token
-      ? isInCart
+      ? isInCart 
         ? navigate("/cart")
         : addToCartFunc(token, dispatch, item, setCartBtnDisabled)
       : navigate("/login");
