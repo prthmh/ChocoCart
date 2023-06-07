@@ -8,18 +8,29 @@ import {
   removeItemFromCart,
 } from "../../../services/cartServices";
 import { addToWishlistFunc } from "../../../services/wishlistServices";
-import { calcDiscount } from "../../../utils/cartAndWishlistUtils";
+import {
+  calcDiscount,
+  isAlreadyPresentInWishlist,
+} from "../../../utils/cartAndWishlistUtils";
+import { NavLink } from "react-router-dom";
 
 const CartItems = ({ item }) => {
-  const [disableMoveToWishlistBtn, setDisableMoveToWishlistBtn] = useState(false);
-  const { name, brand, price, originalPrice, image, qty } = item;
-  const { dispatch } = useData();
+  const [disableMoveToWishlistBtn, setDisableMoveToWishlistBtn] =
+    useState(false);
+  const { _id, name, brand, price, originalPrice, image, qty } = item;
+  const {
+    state: { wishlist },
+    dispatch,
+  } = useData();
   const { token } = useAuth();
- 
+
   const moveToWishlistFromCart = () => {
     addToWishlistFunc(token, dispatch, item, setDisableMoveToWishlistBtn);
     removeItemFromCart(item._id, token, dispatch);
   };
+
+  const isInWishlist = isAlreadyPresentInWishlist(_id, wishlist);
+
   return (
     <div className="cart_item">
       <div className="item_img">
@@ -57,9 +68,19 @@ const CartItems = ({ item }) => {
           >
             Remove
           </button>
-          <button className="move_to_btn" onClick={moveToWishlistFromCart} disabled={disableMoveToWishlistBtn} >
-            Move to Wishlist
-          </button>
+          {isInWishlist ? (
+            <NavLink to="/wishlist" className="move_to_btn" >
+              Already in Wishlist
+            </NavLink>
+          ) : (
+            <button
+              className="move_to_btn"
+              onClick={moveToWishlistFromCart}
+              disabled={disableMoveToWishlistBtn}
+            >
+              Move to Wishlist
+            </button>
+          )}
         </div>
       </div>
     </div>
