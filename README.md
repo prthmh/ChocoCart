@@ -27,4 +27,5 @@ ChocoCart is an e-commerce application to but different kinds of chocolates onli
 $ git clone https://github.com/prthmh/ChocoCart.git
 $ cd chococart
 $ npm install
-$ npm start```
+$ npm start
+```
