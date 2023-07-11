@@ -16,6 +16,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+  position: relative;
 }
 .signup_form > input {
   height: 1.5rem;
@@ -32,13 +33,21 @@
   cursor: pointer;
 }
 .creat_acc:hover {
-    opacity: 0.9;
+  opacity: 0.9;
 }
 #old_acc {
-    text-decoration: none;
-    color: #622825;
-    text-decoration: underline;
-  }
-  #old_acc:hover {
-    opacity: 0.9;
-  }
+  text-decoration: none;
+  color: #622825;
+  text-decoration: underline;
+}
+#old_acc:hover {
+  opacity: 0.9;
+}
+
+.signup_password_btn {
+  color: #622825;
+  position: absolute;
+  cursor: pointer;
+  right: 0.6rem;
+  top: 15.9rem;
+}

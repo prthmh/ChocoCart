@@ -5,6 +5,7 @@ import "./UserLogin.css";
 
 const UserLogin = () => {
   const [loginData, setLoginData] = useState({ email: "", password: "" });
+  const [showPassword, setShowPassword] = useState(false);
   const { token, userLoginFunc } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -29,13 +30,13 @@ const UserLogin = () => {
 
   const loginHandler = () => {
     userLoginFunc(loginData.email, loginData.password);
-  }
+  };
 
   return (
     <div className="login_container">
       <div className="login_content">
         <h2>Sign in</h2>
-        <hr className="price_line" /> 
+        <hr className="price_line" />
         <form
           className="login_form"
           onSubmit={(event) => event.preventDefault()}
@@ -57,8 +58,9 @@ const UserLogin = () => {
 
           <label>Password</label>
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             value={loginData.password}
+            placeholder="********"
             onChange={(event) =>
               setLoginData((prevState) => ({
                 ...prevState,
@@ -66,14 +68,34 @@ const UserLogin = () => {
               }))
             }
           />
+          <span
+            onClick={() => setShowPassword(!showPassword)}
+            className="password_btn"
+          >
+            {showPassword ? (
+              <i className="fa-solid fa-eye-slash"></i>
+            ) : (
+              <i className="fa-solid fa-eye"></i>
+            )}
+          </span>
 
-          <div className="login_btn" onClick={loginHandler} > Log in </div>
+          <div className="login_btn" onClick={loginHandler}>
+            {" "}
+            Log in{" "}
+          </div>
 
-          <div className="login_test_creds"  onClick={loginWithTestCreds} style={{ cursor: "pointer" }}>
+          <div
+            className="login_test_creds"
+            onClick={loginWithTestCreds}
+            style={{ cursor: "pointer" }}
+          >
             Login with Test Credentials
           </div>
 
-          <NavLink to="/signup" id="new_acc" > Create New Account </NavLink>
+          <NavLink to="/signup" id="new_acc">
+            {" "}
+            Create New Account{" "}
+          </NavLink>
         </form>
       </div>
     </div>
