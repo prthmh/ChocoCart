@@ -25,7 +25,7 @@ ChocoCart is an e-commerce application to but different kinds of chocolates onli
 ### How to install and run locally:
 ```
 $ git clone https://github.com/prthmh/ChocoCart.git
-$ cd chococart
+$ cd ChocoCart
 $ npm install
 $ npm start
 ```
