@@ -10,6 +10,10 @@ const UserSignUp = () => {
     firstName: "",
     lastName: "",
   });
+  const [showPassword, setShowPassword] = useState({
+    pwd: false,
+    confirmPwd: false,
+  });
   const { token, userSignUpFunc } = useAuth();
   const navigate = useNavigate();
 
@@ -78,12 +82,26 @@ const UserSignUp = () => {
 
           <label>Password</label>
           <input
-            type="password"
+            type={showPassword.pwd ? "text" : "password"}
             value={signUpData.password}
             placeholder="********"
             onChange={(event) => fillFormData(event, "password")}
             required
           />
+          <span className="signup_password_btn"
+            onClick={() =>
+              setShowPassword((prevState) => ({
+                ...prevState,
+                pwd: !showPassword.pwd,
+              }))
+            }
+          >
+            {showPassword ? (
+              <i className="fa-solid fa-eye-slash"></i>
+            ) : (
+              <i className="fa-solid fa-eye"></i>
+            )}
+          </span>
 
           <div className="creat_acc" onClick={signUpHandler}>
             Create New Account
