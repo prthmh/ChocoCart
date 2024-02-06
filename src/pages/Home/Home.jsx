@@ -27,7 +27,7 @@ const Home = () => {
       type: "SET_CATEGORY_SHOP",
       payload: [...state.categoryFilter, category],
     });
-  };
+  }; 
   return (
     <div>
       {loader ? (
